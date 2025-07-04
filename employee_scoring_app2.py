@@ -16,9 +16,8 @@ plt.rcParams['font.sans-serif'] = [
 ]
 plt.rcParams['axes.unicode_minus'] = False  # 解决负号'-'显示为方块的问题
 
-# 强制Matplotlib刷新字体缓存，确保它能识别新设置的字体
-# 这在部署环境中尤其重要，因为字体可能刚被安装或识别
-fm.fontManager.rebuild()
+# 移除了 fm.fontManager.rebuild()，因为它可能在Streamlit Cloud环境中导致问题。
+# Matplotlib通常能够自行识别并使用可用的字体。
 # --- 字体设置结束 ---
 
 
@@ -343,4 +342,5 @@ else:
 
 st.markdown("---")
 st.markdown("© 2025 车间人员操作评分系统")
+
 
